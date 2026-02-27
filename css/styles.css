@@ -1,13 +1,210 @@
+/* -------------------- */
+/* ESTILO GENERAL       */
+/* -------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
- 
-body {
-  background-color: #003366;
-  color: white;
-  font-family: Arial, sans-serif;
-  padding: 2rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  background: white;
+  color: black;
+  overflow-x: hidden;
+}
+
+/* -------------------- */
+/* HEADER               */
+/* -------------------- */
+
+header {
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /*background: rgba(20, 20, 20, 0.6);*/
+  background-color: white;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#logo_nav {
+  width: 120px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ff1a1a;
+  text-shadow: 0 0 10px #ff1a1a;
+}
+
+/* -------------------- */
+/* CARRUSEL             */
+/* -------------------- */
+
+#carrusel {
+  margin-top: 120px;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  position: relative;
+}
+
+#carrusel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  animation: fade 20s infinite;
+  opacity: 0;
+}
+
+.img1_carrusel { animation-delay: 0s; }
+.img2_carrusel { animation-delay: 5s; }
+.img3_carrusel { animation-delay: 10s; }
+.img4_carrusel { animation-delay: 15s; }
+
+@keyframes fade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  25% { opacity: 1; }
+  30% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* -------------------- */
+/* GALERÍA CUADRADA     */
+/* -------------------- */
+
+#cuadrado {
+  margin: 60px auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+#cuadrado img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#cuadrado img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #ff1a1a;
+}
+
+/* -------------------- */
+/* SECCIONES DE TEXTO   */
+/* -------------------- */
+
+main h2 {
+  text-align: center;
+  margin: 40px 0 10px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff1a1a;
+}
+
+main p {
+  width: 80%;
+  margin: 10px auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: black;
+}
+
+/* -------------------- */
+/* FOOTER               */
+/* -------------------- */
+
+footer {
+  margin-top: 60px;
+  padding: 40px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo_footer {
+  width: 120px;
+}
+
+#elemento p {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* -------------------- */
+/* ICONOS SOCIALES      */
+/* -------------------- */
+
+footer + div {
+  text-align: center;
+  margin: 20px 0;
+}
+
+footer + div i {
+  font-size: 2rem;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+footer + div i:hover {
+  color: #ff1a1a;
+  transform: scale(1.2);
+}
+
+/* -------------------- */
+/* RESPONSIVE           */
+/* -------------------- */
+
+@media (max-width: 900px) {
+  #cuadrado {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  nav a {
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  #cuadrado {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #carrusel {
+    height: 40vh;
+  }
+}
